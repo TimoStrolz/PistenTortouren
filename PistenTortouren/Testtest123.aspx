@@ -3,5 +3,5 @@
     <title>Test</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
-    Kekse
+    Test
 </asp:Content>
