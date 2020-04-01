@@ -12,6 +12,7 @@ namespace PistenTortouren
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] //Für autoincrement!
         public int openingTimeID { get; set; }
+        [Index]
         [Required]
         public int Tour_ID { get; set; }
         [Required, MaxLength(20)]

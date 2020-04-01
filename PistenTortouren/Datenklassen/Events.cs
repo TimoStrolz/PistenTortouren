@@ -15,6 +15,8 @@ namespace PistenTortouren
         [Index]
         [Required]
         public int Tours_ID { get; set; }
+        [Required, MaxLength(45)]
+        public string type { get; set; }
         [Required]
         public string info { get; set; }
         [Index]

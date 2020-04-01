@@ -60,7 +60,7 @@ namespace PistenTortouren
         [Required]
         public int status { get; set; }
         [Required]
-        public string  instuctions {get; set; }
+        public string  instructions {get; set; }
         [Required]
         public DateTime birthday { get; set; }
         [Required]
