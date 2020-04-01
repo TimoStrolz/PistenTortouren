@@ -5,9 +5,9 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PistenTortouren.Datenklassen
+namespace PistenTortouren
 {
-    public class Events
+    public class Event
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] //Für autoincrement!

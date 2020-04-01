@@ -11,7 +11,15 @@ namespace PistenTortouren
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string test = "";
+            using (pistenTortourenDBContext context = new pistenTortourenDBContext())
+            {
+                foreach (User user in context.Users.SqlQuery("Select * FROM Users").ToList<User>())
+                {
+                    test += user.email;
+                }
+            }
+            Response.Write(test);
         }
     }
 }

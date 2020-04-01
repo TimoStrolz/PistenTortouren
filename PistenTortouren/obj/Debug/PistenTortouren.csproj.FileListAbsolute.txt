@@ -109,3 +109,7 @@ C:\Users\Joel Thoma\Documents\GitHub\PistenTortouren\PistenTortouren\bin\roslyn\
 C:\Users\Joel Thoma\Documents\GitHub\PistenTortouren\PistenTortouren\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Joel Thoma\Documents\GitHub\PistenTortouren\PistenTortouren\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Joel Thoma\Documents\GitHub\PistenTortouren\PistenTortouren\obj\Debug\PistenTortouren.csproj.CopyComplete
+C:\Users\timos\Documents\GitHub\PistenTortouren\PistenTortouren\bin\EntityFramework.dll
+C:\Users\timos\Documents\GitHub\PistenTortouren\PistenTortouren\bin\EntityFramework.SqlServer.dll
+C:\Users\timos\Documents\GitHub\PistenTortouren\PistenTortouren\bin\EntityFramework.xml
+C:\Users\timos\Documents\GitHub\PistenTortouren\PistenTortouren\bin\EntityFramework.SqlServer.xml

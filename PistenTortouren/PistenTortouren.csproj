@@ -75,12 +75,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="landingpage.aspx" />
+    <Content Include="registration.aspx" />
     <Content Include="Testtest123.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datenklassen\Events.cs" />
     <Compile Include="Datenklassen\OpeningTimes.cs" />
+    <Compile Include="Datenklassen\pistenTortourenDBContext.cs" />
     <Compile Include="Datenklassen\Tours.cs" />
     <Compile Include="Datenklassen\Users.cs" />
     <Compile Include="MasterSite.Master.cs">
@@ -97,6 +99,13 @@
     </Compile>
     <Compile Include="landingpage.aspx.designer.cs">
       <DependentUpon>landingpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="registration.aspx.cs">
+      <DependentUpon>registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="registration.aspx.designer.cs">
+      <DependentUpon>registration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Testtest123.aspx.cs">
       <DependentUpon>Testtest123.aspx</DependentUpon>
