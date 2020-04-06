@@ -12,7 +12,7 @@ namespace PistenTortouren
         {
         }
         public DbSet<Event> Events { get; set; }
-        public DbSet<OpeningTime> EpeningTimes { get; set; }
+        public DbSet<OpeningTime> OpeningTimes { get; set; }
         public DbSet<Tour> Tours { get; set; }
         public DbSet<User> Users { get; set; }
     }
