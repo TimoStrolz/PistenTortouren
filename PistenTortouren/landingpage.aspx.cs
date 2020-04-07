@@ -9,11 +9,21 @@ namespace PistenTortouren
 {
     public partial class landingpage : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        public void Page_Load(object sender, EventArgs e)
         {
+            float Longitude = 0;
+            float Latitude = 0;
 
+            using (pistenTortourenDBContext context = new pistenTortourenDBContext())
+                foreach (Tour tour in context.Tours.SqlQuery("SELECT * FROM Tours").ToList<Tour>())
+                {
+                    Longitude = tour.finishLongitude;
+                    Latitude = tour.finishLatitude;
+                }
 
             //fillUpDatabase();
+
+
         }
 
 
