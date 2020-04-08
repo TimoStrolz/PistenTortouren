@@ -19,6 +19,10 @@ namespace PistenTortouren
                 {
                     Longitude = tour.finishLongitude;
                     Latitude = tour.finishLatitude;
+                    Response.Write(Latitude + " ");
+                    Response.Write(Longitude);
+                    ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "script.js", "AssignValue('" + Longitude.ToString() + "');", true);
+                    ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "script.js", "AssignValue('" + Latitude.ToString() + "');", true);
                 }
 
             //fillUpDatabase();
