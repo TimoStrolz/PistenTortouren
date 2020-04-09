@@ -1,6 +1,4 @@
 // JavaScript source code
-var longitude = '<%= Longitude %>';
-var latitude = '<%= Latitude %>';
 var mymap = L.map('mapid').setView([46.8095954, 8.503216], 8);
 var marker = L.marker([51.5, -0.09]).addTo(mymap);
 //var marker = L.marker([latitude, longitude]).addTo(mymap);
@@ -20,7 +18,3 @@ function onMapClick(e) {
 }
 
 //Javascript Function
-function AssignValue(Value) {
-    var menuType = Value;
-    alert(menuType);
-}

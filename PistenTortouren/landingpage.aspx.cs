@@ -9,21 +9,32 @@ namespace PistenTortouren
 {
     public partial class landingpage : System.Web.UI.Page
     {
+        public float Longitude = 0;
+        public float Latitude = 0;
+        public List<float[]> map_data = new List<float[]>();
+
         public void Page_Load(object sender, EventArgs e)
         {
-            float Longitude = 0;
-            float Latitude = 0;
+
 
             using (pistenTortourenDBContext context = new pistenTortourenDBContext())
                 foreach (Tour tour in context.Tours.SqlQuery("SELECT * FROM Tours").ToList<Tour>())
                 {
+                    
                     Longitude = tour.finishLongitude;
                     Latitude = tour.finishLatitude;
+                    float[] dataMarker = new float[2] { Latitude, Longitude };
+                    map_data.Add(dataMarker);
                     Response.Write(Latitude + " ");
                     Response.Write(Longitude);
-                    ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "script.js", "AssignValue('" + Longitude.ToString() + "');", true);
-                    ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "script.js", "AssignValue('" + Latitude.ToString() + "');", true);
                 }
+            foreach (var item in map_data)
+            {
+                foreach (var schlong in item)
+                {
+                    Response.Write(schlong);
+                }
+            }
 
             //fillUpDatabase();
 

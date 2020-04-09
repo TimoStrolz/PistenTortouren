@@ -15,4 +15,8 @@
 
     <div id="mapid"></div>
     <script src="script.js"></script>
+    <script>
+        var marker = L.marker([<%=Latitude %>, <%=Longitude %>]).addTo(mymap);
+        alert(<%=map_data %>);
+    </script>
 </asp:Content>
