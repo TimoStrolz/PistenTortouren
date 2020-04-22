@@ -5,11 +5,8 @@
 <html>
 <head runat="server">
     <title></title>
-<<<<<<< HEAD
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-=======
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
->>>>>>> f7a4175bade44062a697e926dcf78777706c6c6c
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <script src ="Script.js"></script>
