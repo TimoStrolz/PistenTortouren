@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>registration</title>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <script>  document.addEventListener('DOMContentLoaded', function () {
             var elems = document.querySelectorAll('.autocomplete');
             var instances = M.Autocomplete.init(elems, options);
