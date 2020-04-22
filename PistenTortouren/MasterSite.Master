@@ -5,14 +5,89 @@
 <html>
 <head runat="server">
     <title></title>
+<<<<<<< HEAD
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+=======
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+>>>>>>> f7a4175bade44062a697e926dcf78777706c6c6c
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <script src ="Script.js"></script>
+    <script src ="materialize.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
 </head>
+
 <body>
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
-        </asp:ContentPlaceHolder>
-    </div>
+        
+        <nav class="header">
+            <div>
+                <a href="#" class="brand-logo #428bca">Logo</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down #428bca">
+                <li><a href="Testtest123.aspx">Sass</a></li>
+                </ul>
+            </div>
+        </nav>
+
+    <header>
+        
+        <asp:ContentPlaceHolder ID="header" runat="server">
+        </asp:ContentPlaceHolder>     
+        
+    </header>
+
+        <div>
+            <asp:ContentPlaceHolder ID="body" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+    <footer>
+        <asp:ContentPlaceHolder ID="footer" runat="server">
+            </asp:ContentPlaceHolder>
+        <div class="footer">
+            <p>Footer</p>
+        </div>
+    </footer>
 </body>
 </html>
+
+
+<style>
+.header {
+  padding: 10px 16px;
+  background: #f0ad4e;
+  color: #428bca;
+}
+
+/* Der Inhalt der Webseite wird festgelegt */
+.content {
+  padding: 20px;
+}
+
+/* Der Header wird sticky gemacht */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.footer {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  left: 10px;
+  padding: 10px 16px;
+  background-color: #f0ad4e;
+  color: #428bca;
+  text-align: left;
+}
+</style>
