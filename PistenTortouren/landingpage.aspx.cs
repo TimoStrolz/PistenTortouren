@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -12,7 +13,7 @@ namespace PistenTortouren
         public float Longitude = 0;
         public float Latitude = 0;
         public List<float[]> map_data = new List<float[]>();
-
+        public List<string> MarkerLatitude = new List<string>();
         public void Page_Load(object sender, EventArgs e)
         {
 
@@ -25,6 +26,7 @@ namespace PistenTortouren
                     Latitude = tour.finishLatitude;
                     float[] dataMarker = new float[2] { Latitude, Longitude };
                     map_data.Add(dataMarker);
+                    MarkerLatitude.Add(Latitude.ToString()); // TEST TEST
                     Response.Write(Latitude + " ");
                     Response.Write(Longitude);
                 }
@@ -35,6 +37,18 @@ namespace PistenTortouren
                     Response.Write(schlong);
                 }
             }
+            // TEST TEST
+            StringBuilder sb = new StringBuilder();
+            sb.Append("<script>");
+            sb.Append("var testArray = new Array;");
+            foreach (string str in MarkerLatitude)
+            {
+                Response.Write("lol " + str);
+                sb.Append("testArray.push('" + str + "');");
+            }
+            sb.Append("</script>");
+
+            ClientScript.RegisterStartupScript(this.GetType(), "TestArrayScript", sb.ToString());
 
             //fillUpDatabase();
 

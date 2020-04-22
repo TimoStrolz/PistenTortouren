@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterSite.Master" AutoEventWireup="true" CodeBehind="landingpage.aspx.cs" Inherits="PistenTortouren.landingpage" %>
+﻿  <%@ Page Title="" Language="C#" MasterPageFile="~/MasterSite.Master" AutoEventWireup="true" CodeBehind="landingpage.aspx.cs" Inherits="PistenTortouren.landingpage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
@@ -16,6 +16,11 @@
     <div id="mapid"></div>
     <script src="script.js"></script>
     <script>
+        if (testArray) {
+            // do something with testArray
+            alert("It worked");
+        }
+
         var marker = L.marker([<%=Latitude %>, <%=Longitude %>]).addTo(mymap);
         alert(<%=map_data %>);
     </script>
