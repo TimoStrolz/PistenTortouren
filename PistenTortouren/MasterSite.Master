@@ -26,20 +26,16 @@
 
 <body>
         
+    <!-- #428bca-->
+    <header>
         <nav class="header">
             <div>
-                <a href="#" class="brand-logo #428bca">Logo</a>
+                <a href="#" class="brand-logo ">Logo</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down #428bca">
                 <li><a href="Testtest123.aspx">Sass</a></li>
                 </ul>
             </div>
         </nav>
-
-    <header>
-        
-        <asp:ContentPlaceHolder ID="header" runat="server">
-        </asp:ContentPlaceHolder>     
-        
     </header>
 
         <div>
@@ -48,8 +44,6 @@
         </div>
 
     <footer>
-        <asp:ContentPlaceHolder ID="footer" runat="server">
-            </asp:ContentPlaceHolder>
         <div class="footer">
             <p>Footer</p>
         </div>

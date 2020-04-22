@@ -11,7 +11,7 @@
 
     
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
 
     <div id="mapid"></div>
     <script src="script.js"></script>
