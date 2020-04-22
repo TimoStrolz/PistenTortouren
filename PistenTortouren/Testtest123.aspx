@@ -2,6 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Test</title>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
-    Test
+<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+    Testfr
 </asp:Content>

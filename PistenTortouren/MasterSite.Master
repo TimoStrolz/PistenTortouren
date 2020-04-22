@@ -24,19 +24,66 @@
 </head>
 
 <body>
-      <nav>
-        <div class="nav-wrapper grey">
-          <a href="#" class="brand-logo">Logo</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="Testtest123.aspx">Test</a></li>
-          </ul>
-        </div>
-      </nav>
+        
+        <nav class="header">
+            <div>
+                <a href="#" class="brand-logo #428bca">Logo</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down #428bca">
+                <li><a href="Testtest123.aspx">Sass</a></li>
+                </ul>
+            </div>
+        </nav>
 
     <header>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
-        </asp:ContentPlaceHolder>
-
+        
+        <asp:ContentPlaceHolder ID="header" runat="server">
+        </asp:ContentPlaceHolder>     
+        
     </header>
+
+        <div>
+            <asp:ContentPlaceHolder ID="body" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+    <footer>
+        <asp:ContentPlaceHolder ID="footer" runat="server">
+            </asp:ContentPlaceHolder>
+        <div class="footer">
+            <p>Footer</p>
+        </div>
+    </footer>
 </body>
 </html>
+
+
+<style>
+.header {
+  padding: 10px 16px;
+  background: #f0ad4e;
+  color: #428bca;
+}
+
+/* Der Inhalt der Webseite wird festgelegt */
+.content {
+  padding: 20px;
+}
+
+/* Der Header wird sticky gemacht */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.footer {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  left: 10px;
+  padding: 10px 16px;
+  background-color: #f0ad4e;
+  color: #428bca;
+  text-align: left;
+}
+</style>
