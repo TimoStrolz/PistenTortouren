@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace PistenTortouren
 {
-    public partial class adminUser : System.Web.UI.Page
+    public partial class hilfe : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
