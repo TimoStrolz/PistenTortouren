@@ -74,17 +74,44 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="adminPage.aspx" />
+    <Content Include="adminUser.aspx" />
     <Content Include="landingpage.aspx" />
+    <Content Include="login.aspx" />
     <Content Include="registration.aspx" />
     <Content Include="Testtest123.aspx" />
+    <Content Include="userEdit.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adminPage.aspx.cs">
+      <DependentUpon>adminPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminPage.aspx.designer.cs">
+      <DependentUpon>adminPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminUser.aspx.cs">
+      <DependentUpon>adminUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminUser.aspx.designer.cs">
+      <DependentUpon>adminUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="crypt.cs" />
     <Compile Include="Datenklassen\Events.cs" />
     <Compile Include="Datenklassen\OpeningTimes.cs" />
     <Compile Include="Datenklassen\pistenTortourenDBContext.cs" />
     <Compile Include="Datenklassen\Tours.cs" />
     <Compile Include="Datenklassen\Users.cs" />
+    <Compile Include="GlobalRef.cs" />
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterSite.Master.cs">
       <DependentUpon>MasterSite.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -113,6 +140,13 @@
     </Compile>
     <Compile Include="Testtest123.aspx.designer.cs">
       <DependentUpon>Testtest123.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="userEdit.aspx.cs">
+      <DependentUpon>userEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userEdit.aspx.designer.cs">
+      <DependentUpon>userEdit.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

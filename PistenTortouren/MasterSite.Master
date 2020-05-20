@@ -26,20 +26,23 @@
 
 <body>
         
+    <!-- #428bca-->
+    <header>
         <nav class="header">
             <div>
-                <a href="#" class="brand-logo #428bca">Logo</a>
+                <a href="#" class="brand-logo ">Pistentortouren</a>
+                
                 <ul id="nav-mobile" class="right hide-on-med-and-down #428bca">
-                <li><a href="Testtest123.aspx">Sass</a></li>
+                <li>
+                    <form method="post" action="landingpage.aspx">
+                    <input type ="text" name="search" class="center field search-query"/>
+                    </form>
+                </li>
+                <li><a href="hilfe.aspx">Hilfe</a></li>
+                <li><a href="landingpage.aspx">Karte</a></li>
                 </ul>
             </div>
         </nav>
-
-    <header>
-        
-        <asp:ContentPlaceHolder ID="header" runat="server">
-        </asp:ContentPlaceHolder>     
-        
     </header>
 
         <div>
@@ -47,44 +50,54 @@
             </asp:ContentPlaceHolder>
         </div>
 
-    <footer>
-        <asp:ContentPlaceHolder ID="footer" runat="server">
-            </asp:ContentPlaceHolder>
-        <div class="footer">
-            <p>Footer</p>
-        </div>
-    </footer>
+    <footer class="footer">
+          <div >
+            <a runat="server" style="display: none;" id="llogin" class="right" href="login.aspx">Login</a>
+            <br />
+            <a runat="server" style="display: none;" id="lregistration" class="right" href="registration.aspx">Registrieren</a>
+            <br />
+            <a  runat="server" style="display: none;" id="llogout" class="right" href="landingpage.aspx?task=logout">Logout</a>
+            <div class="container left">
+            © 2014 Copyright Text
+            </div> 
+            <br />
+            <a  runat="server" style="display: none;" id="leditUser" class="right" href="userEdit.aspx?">Benutzerdaten bearbeiten</a>
+            <br />
+            <a  runat="server" style="display: none;" id="lcreatetour" class="right" href="createtour.aspx?">Tour erstellen</a>
+             <br />
+            <a  runat="server" style="display: none;" id="ladminPage" class="right" href="adminpage.aspx?">Admin Bereich</a>
+                    
+          </div>
+        </footer>
 </body>
 </html>
 
 
 <style>
+
 .header {
-  padding: 10px 16px;
   background: #f0ad4e;
   color: #428bca;
 }
 
-/* Der Inhalt der Webseite wird festgelegt */
-.content {
-  padding: 20px;
-}
-
 /* Der Header wird sticky gemacht */
+
 .sticky {
   position: fixed;
   top: 0;
   width: 100%
 }
-
+    
 .footer {
-  position: absolute;
-  bottom: 10px;
+  position: sticky;
+  bottom: 0px;
   right: 10px;
   left: 10px;
-  padding: 10px 16px;
+  padding: 10px 10px;
   background-color: #f0ad4e;
   color: #428bca;
   text-align: left;
+  height: 130px;
+  
 }
 </style>

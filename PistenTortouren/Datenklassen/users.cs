@@ -24,11 +24,11 @@ namespace PistenTortouren
         [Index]
         [Required, MaxLength(50)]
         public string email { get; set; }
-        [Required]
+        
         public DateTime lastPayment { get; set; }
         [Required]
         public bool emailVerified { get; set; }
-        [Required]
+        
         public DateTime billSent { get; set; }
         [Required]
         public DateTime birthday { get; set; }
@@ -46,6 +46,6 @@ namespace PistenTortouren
         [Required]
         public int housenumber { get; set; }
         [Required]
-        public int subscriptionnumber { get; set; }
+        public int subscriptionNumber { get; set; }
     }
 }
