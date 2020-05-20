@@ -10,52 +10,46 @@ namespace PistenTortouren
 {
     public partial class landingpage : System.Web.UI.Page
     {
-        public float Longitude = 0;
-        public float Latitude = 0;
-        public List<float[]> map_data = new List<float[]>();
-        public List<string> MarkerLatitude = new List<string>();
         public void Page_Load(object sender, EventArgs e)
         {
+            //logout
+            if (Request.QueryString["task"] != null && Request.QueryString["task"] == "logout")
+            {
+                logout();
+            }
 
+            //fillUpDatabase();
+            int counter = 0;
 
             using (pistenTortourenDBContext context = new pistenTortourenDBContext())
                 foreach (Tour tour in context.Tours.SqlQuery("SELECT * FROM Tours").ToList<Tour>())
                 {
-                    
-                    Longitude = tour.finishLongitude;
-                    Latitude = tour.finishLatitude;
-                    float[] dataMarker = new float[2] { Latitude, Longitude };
-                    map_data.Add(dataMarker);
-                    MarkerLatitude.Add(Latitude.ToString()); // TEST TEST
-                    Response.Write(Latitude + " ");
-                    Response.Write(Longitude);
+                    string markerText = "<h5>@Title</h5><p>Beschreibung: @Text</p><p>Schwierigkeit: @Difficulty</p><p>Länge: @Length km</p><a href='detailpage.aspx?id=@Id'><button type='button'>Siehe Mehr</button></a>";
+                    counter++;
+                    this.JsInterfaceMapTypeManager.InnerHtml += generateDivMitIdUndValue(counter.ToString(), tour.finishLongitude.ToString());
+                    counter++;
+                    this.JsInterfaceMapTypeManager.InnerHtml += generateDivMitIdUndValue(counter.ToString(), tour.finishLatitude.ToString());
+                    /*
+                     Hier Code einfügen: Alle Daten für Popup mitnehmen in einem String -> ähnlich wie den Text bei Forumprojekt von dem Forumbeitrag beispiel.     
+                     */
+                    counter++;
+                    markerText = markerText.Replace("@Id", tour.tourID.ToString());
+                    markerText = markerText.Replace("@Title", tour.title);
+                    markerText = markerText.Replace("@Text", tour.text);
+                    markerText = markerText.Replace("@Difficulty", tour.difficulty);
+                    markerText = markerText.Replace("@Length", tour.tourLength.ToString());
+                    this.JsInterfaceMapTypeManager.InnerHtml += generateDivMitIdUndValue(counter.ToString(), markerText);
                 }
-            foreach (var item in map_data)
-            {
-                foreach (var schlong in item)
-                {
-                    Response.Write(schlong);
-                }
-            }
-            // TEST TEST
-            StringBuilder sb = new StringBuilder();
-            sb.Append("<script>");
-            sb.Append("var testArray = new Array;");
-            foreach (string str in MarkerLatitude)
-            {
-                Response.Write("lol " + str);
-                sb.Append("testArray.push('" + str + "');");
-            }
-            sb.Append("</script>");
-
-            ClientScript.RegisterStartupScript(this.GetType(), "TestArrayScript", sb.ToString());
-
-            //fillUpDatabase();
-
+            this.JsInterfaceMapTypeManager.InnerHtml += generateDivMitIdUndValue("counter", counter.ToString());
 
         }
-
-
+        /// <summary>
+        /// Gibt javascript Variabeln
+        /// </summary>
+        public static string generateDivMitIdUndValue(string id, string value)
+        {
+            return "<div id=\"" + id + "\" value=\"" + value + "\"></div>\n";
+        }
 
 
 
@@ -82,7 +76,7 @@ namespace PistenTortouren
                 User1.street = "Loisstrasse";
                 User1.housenumber = 50;
                 User1.zip = 7310;
-                User1.subscriptionnumber = 1;
+                User1.subscriptionNumber = 1;
             };
 
             Tour Tour1 = new Tour();
@@ -98,10 +92,10 @@ namespace PistenTortouren
                 Tour1.altitude = 2844;
                 Tour1.lowestPoint = 2400;
                 Tour1.highestPoint = 2800;
-                Tour1.startingLatitude = 748265;
-                Tour1.startingLongitude = 202740;
-                Tour1.finishLatitude = 748265;
-                Tour1.finishLongitude = 202740;
+                Tour1.startingLatitude = 46.9581642;
+                Tour1.startingLongitude = 9.359114;
+                Tour1.finishLatitude = 46.9581642;
+                Tour1.finishLongitude = 9.359114;
                 Tour1.gettingThere = "You'll manage";
                 Tour1.signalled = true;
                 Tour1.changingRooms = false;
@@ -113,6 +107,69 @@ namespace PistenTortouren
                 Tour1.instructions = "Please don't die";
                 Tour1.birthday = DateTime.Now;
                 Tour1.numberOfFiles = 0;
+                Tour1.difficulty = "easy";
+            };
+
+            Tour Tour2 = new Tour();
+            {
+                Tour2.tourID = 2;
+                Tour2.User_ID = 1;
+                Tour2.title = "PistenTour Zwei";
+                Tour2.text = "Es ist eine nicht wirklich gute Tour";
+                Tour2.safetyInstruction = "Darwin";
+                Tour2.seasonStart = DateTime.Now;
+                Tour2.seasonEnd = DateTime.Now;
+                Tour2.tourLength = 70;
+                Tour2.altitude = 2502;
+                Tour2.lowestPoint = 2400;
+                Tour2.highestPoint = 2800;
+                Tour2.startingLatitude = 47.249444444444;
+                Tour2.startingLongitude = 9.3433333333333;
+                Tour2.finishLatitude = 47.249444444444;
+                Tour2.finishLongitude = 9.3433333333333;
+                Tour2.gettingThere = "Walk";
+                Tour2.signalled = false;
+                Tour2.changingRooms = true;
+                Tour2.wc = true;
+                Tour2.drinks = true;
+                Tour2.food = true;
+                Tour2.accommodation = true;
+                Tour2.status = 1;
+                Tour2.instructions = "Please die";
+                Tour2.birthday = DateTime.Now;
+                Tour2.numberOfFiles = 0;
+                Tour2.difficulty = "medium";
+            };
+
+            Tour Tour3 = new Tour();
+            {
+                Tour3.tourID = 3;
+                Tour3.User_ID = 1;
+                Tour3.title = "PistenTour Drei";
+                Tour3.text = "Die Tour deines Lebens";
+                Tour3.safetyInstruction = "Für Kinder geeignet";
+                Tour3.seasonStart = DateTime.Now;
+                Tour3.seasonEnd = DateTime.Now;
+                Tour3.tourLength = 100;
+                Tour3.altitude = 1830;
+                Tour3.lowestPoint = 2000;
+                Tour3.highestPoint = 3000;
+                Tour3.startingLatitude = 47.067222222222;
+                Tour3.startingLongitude = 9.4338888888889;
+                Tour3.finishLatitude = 47.067222222222;
+                Tour3.finishLongitude = 9.4338888888889;
+                Tour3.gettingThere = "Everything is signalled";
+                Tour3.signalled = true;
+                Tour3.changingRooms = false;
+                Tour3.wc = false;
+                Tour3.drinks = false;
+                Tour3.food = true;
+                Tour3.accommodation = true;
+                Tour3.status = 1;
+                Tour3.instructions = "Follow the path";
+                Tour3.birthday = DateTime.Now;
+                Tour3.numberOfFiles = 0;
+                Tour3.difficulty = "hard";
             };
 
             Event Event1 = new Event();
@@ -139,11 +196,24 @@ namespace PistenTortouren
             {
                 context.Users.Add(User1);
                 context.Tours.Add(Tour1);
+                context.Tours.Add(Tour2);
+                context.Tours.Add(Tour3);
                 context.Events.Add(Event1);
                 context.OpeningTimes.Add(openingTime1);
                 context.SaveChanges();
             }
 
         }
+        //logout
+        public void logout()
+        {
+            Session.Clear();
+            HttpCookie myCookie = new HttpCookie("User");
+            myCookie.Value = "";
+            Response.Cookies.Add(myCookie);
+            Response.Redirect("landingpage.aspx");
+        }
+
     }
 }
+

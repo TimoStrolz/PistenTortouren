@@ -25,13 +25,13 @@
 </head>
 
 <body>
-        
+
     <!-- #428bca-->
     <header>
         <nav class="header">
             <div>
                 <a href="#" class="brand-logo ">Pistentortouren</a>
-                
+
                 <ul id="nav-mobile" class="right hide-on-med-and-down #428bca">
                 <li>
                     <form method="post" action="landingpage.aspx">
@@ -52,19 +52,21 @@
 
     <footer class="footer">
           <div >
-            <a runat="server" style="display: ;" id="llogin" class="right" href="login.aspx">Login</a>
+            <a runat="server" style="display: none;" id="llogin" class="right" href="login.aspx">Login</a>
             <br />
-            <a runat="server" style="display: ;" id="lregistration" class="right" href="registration.aspx">Registrieren</a>
+            <a runat="server" style="display: none;" id="lregistration" class="right" href="registration.aspx">Registrieren</a>
             <br />
-            <a  runat="server" style="display: ;" id="llogout" class="right" href="landingpage.aspx?task=logout">Logout</a>
+            <a  runat="server" style="display: none;" id="llogout" class="right" href="landingpage.aspx?task=logout">Logout</a>
             <div class="container left">
             © 2014 Copyright Text
-            </div> 
+            </div>
             <br />
-            <a  runat="server" style="display: ;" id="leditUser" class="right" href="userEdit.aspx?">Benutzerdaten bearbeiten</a>
+            <a  runat="server" style="display: none;" id="leditUser" class="right" href="userEdit.aspx?">Benutzerdaten bearbeiten</a>
             <br />
-            <a  runat="server" style="display: ;" id="lcreatetour" class="right" href="createtour.aspx?">Tour erstellen</a>
-                    
+            <a  runat="server" style="display: none;" id="lcreatetour" class="right" href="createtour.aspx?">Tour erstellen</a>
+             <br />
+            <a  runat="server" style="display: none;" id="ladminPage" class="right" href="adminpage.aspx?">Admin Bereich</a>
+
           </div>
         </footer>
 </body>
@@ -85,7 +87,7 @@
   top: 0;
   width: 100%
 }
-    
+
 .footer {
   position: sticky;
   bottom: 0px;
@@ -96,6 +98,6 @@
   color: #428bca;
   text-align: left;
   height: 130px;
-  
+
 }
 </style>

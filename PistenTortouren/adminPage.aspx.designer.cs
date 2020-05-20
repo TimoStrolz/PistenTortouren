@@ -11,7 +11,7 @@ namespace PistenTortouren
 {
 
 
-    public partial class hilfe
+    public partial class adminPage
     {
     }
 }

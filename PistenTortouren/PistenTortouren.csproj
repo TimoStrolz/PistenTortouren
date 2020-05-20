@@ -74,10 +74,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="createtour.aspx" />
+    <Content Include="adminPage.aspx" />
+    <Content Include="detailpage.aspx" />
     <Content Include="hilfe.aspx" />
     <Content Include="landingpage.aspx" />
+    <Content Include="login.aspx" />
     <Content Include="registration.aspx" />
+    <Content Include="Testtest123.aspx" />
     <Content Include="userEdit.aspx" />
     <Content Include="Web.config" />
     <Content Include="login.aspx" />
@@ -95,6 +98,13 @@
     <Compile Include="Datenklassen\pistenTortourenDBContext.cs" />
     <Compile Include="Datenklassen\Tours.cs" />
     <Compile Include="Datenklassen\Users.cs" />
+    <Compile Include="detailpage.aspx.cs">
+      <DependentUpon>detailpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="detailpage.aspx.designer.cs">
+      <DependentUpon>detailpage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GlobalRef.cs" />
     <Compile Include="hilfe.aspx.cs">
       <DependentUpon>hilfe.aspx</DependentUpon>
@@ -131,6 +141,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="userEdit.aspx.cs">
+      <DependentUpon>userEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userEdit.aspx.designer.cs">
+      <DependentUpon>userEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="userEdit.aspx.cs">
       <DependentUpon>userEdit.aspx</DependentUpon>
@@ -185,7 +202,7 @@
     <Error Condition="!Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
   </Target>
   <Import Project="packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

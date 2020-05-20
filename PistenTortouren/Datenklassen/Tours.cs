@@ -20,6 +20,8 @@ namespace PistenTortouren
         public string title { get; set; }
         [Required]
         public string text { get; set; }
+        [Required, MaxLength(45)]
+        public string difficulty { get; set; }
         [Required]
         public string safetyInstruction { get; set; }
         [Required]
@@ -35,13 +37,13 @@ namespace PistenTortouren
         [Required]
         public int highestPoint { get; set; }
         [Required]
-        public float startingLongitude { get; set; }
+        public double startingLongitude { get; set; }
         [Required]
-        public float startingLatitude { get; set; }
+        public double startingLatitude { get; set; }
         [Required]
-        public float finishLongitude { get; set; }
+        public double finishLongitude { get; set; }
         [Required]
-        public float finishLatitude { get; set; }
+        public double finishLatitude { get; set; }
         [Required]
         public string gettingThere { get; set; }
         [Required]
