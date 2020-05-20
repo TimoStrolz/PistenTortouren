@@ -7,11 +7,8 @@ using System.Web.UI.WebControls;
 
 namespace PistenTortouren
 {
-    public partial class MasterSite : System.Web.UI.MasterPage
+    public partial class WebForm1 : System.Web.UI.Page
     {
-        
-        
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
