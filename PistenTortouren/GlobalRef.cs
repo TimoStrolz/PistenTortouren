@@ -61,5 +61,21 @@ namespace PistenTortouren
             }
             return pattern;
         }
+
+        public static string htmlCorrectDateValue(DateTime date)
+        {
+            string lessTenDays = "";
+            if (date.Day < 10)
+            {
+                lessTenDays = "0";
+            }
+            string lessTenMonths = "";
+            if (date.Month < 10)
+            {
+                lessTenMonths = "0";
+            }
+            string s = date.Year.ToString() + "-" + lessTenMonths + date.Month.ToString() +  "-" + lessTenDays + date.Day.ToString();
+            return s;
+        }
     }
 }
