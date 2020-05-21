@@ -11,6 +11,9 @@ namespace PistenTortouren
 {
     public partial class MasterSite : System.Web.UI.MasterPage
     {
+        
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Cookies["User"] != null && Request.Cookies["User"].Value != "")

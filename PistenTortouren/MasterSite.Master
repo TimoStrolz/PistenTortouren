@@ -25,13 +25,13 @@
 </head>
 
 <body>
-        
+
     <!-- #428bca-->
     <header>
         <nav class="header">
             <div>
                 <a href="#" class="brand-logo ">Pistentortouren</a>
-                
+
                 <ul id="nav-mobile" class="right hide-on-med-and-down #428bca">
                 <li>
                     <form method="post" action="landingpage.aspx">
@@ -59,14 +59,14 @@
             <a  runat="server" style="display: none;" id="llogout" class="right" href="landingpage.aspx?task=logout">Logout</a>
             <div class="container left">
             © 2014 Copyright Text
-            </div> 
+            </div>
             <br />
             <a  runat="server" style="display: none;" id="leditUser" class="right" href="userEdit.aspx?">Benutzerdaten bearbeiten</a>
             <br />
             <a  runat="server" style="display: none;" id="lcreatetour" class="right" href="createtour.aspx?">Tour erstellen</a>
              <br />
             <a  runat="server" style="display: none;" id="ladminPage" class="right" href="adminpage.aspx?">Admin Bereich</a>
-                    
+
           </div>
         </footer>
 </body>
@@ -87,7 +87,7 @@
   top: 0;
   width: 100%
 }
-    
+
 .footer {
   position: sticky;
   bottom: 0px;
@@ -98,6 +98,6 @@
   color: #428bca;
   text-align: left;
   height: 130px;
-  
+
 }
 </style>
