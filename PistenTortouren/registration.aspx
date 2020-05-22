@@ -128,7 +128,6 @@
                 </p>
             </div>
             
-        </div>
         <div class="input-field col s6">
             <input class="btn" type="submit" value="Registrieren" >
         </div>

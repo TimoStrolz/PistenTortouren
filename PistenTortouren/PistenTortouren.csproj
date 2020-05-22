@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="adminPage.aspx" />
+    <Content Include="createtour.aspx" />
     <Content Include="detailpage.aspx" />
     <Content Include="hilfe.aspx" />
     <Content Include="landingpage.aspx" />
@@ -91,6 +92,13 @@
     </Compile>
     <Compile Include="adminPage.aspx.designer.cs">
       <DependentUpon>adminPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="createtour.aspx.cs">
+      <DependentUpon>createtour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="createtour.aspx.designer.cs">
+      <DependentUpon>createtour.aspx</DependentUpon>
     </Compile>
     <Compile Include="crypt.cs" />
     <Compile Include="Datenklassen\Events.cs" />
