@@ -80,7 +80,6 @@
     <Content Include="landingpage.aspx" />
     <Content Include="login.aspx" />
     <Content Include="registration.aspx" />
-    <Content Include="Testtest123.aspx" />
     <Content Include="userEdit.aspx" />
     <Content Include="Web.config" />
     <Content Include="login.aspx" />
