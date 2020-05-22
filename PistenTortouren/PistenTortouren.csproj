@@ -83,16 +83,16 @@
     <Content Include="Testtest123.aspx" />
     <Content Include="userEdit.aspx" />
     <Content Include="Web.config" />
-    <Content Include="login.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="createtour.aspx.cs">
-      <DependentUpon>createtour.aspx</DependentUpon>
+    <Compile Include="adminPage.aspx.cs">
+      <DependentUpon>adminPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="createtour.aspx.designer.cs">
-      <DependentUpon>createtour.aspx</DependentUpon>
+    <Compile Include="adminPage.aspx.designer.cs">
+      <DependentUpon>adminPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="crypt.cs" />
     <Compile Include="Datenklassen\Events.cs" />
     <Compile Include="Datenklassen\OpeningTimes.cs" />
     <Compile Include="Datenklassen\pistenTortourenDBContext.cs" />
@@ -112,6 +112,13 @@
     </Compile>
     <Compile Include="hilfe.aspx.designer.cs">
       <DependentUpon>hilfe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterSite.Master.cs">
       <DependentUpon>MasterSite.Master</DependentUpon>
@@ -135,19 +142,12 @@
     <Compile Include="registration.aspx.designer.cs">
       <DependentUpon>registration.aspx</DependentUpon>
     </Compile>
-    <Compile Include="login.aspx.cs">
-      <DependentUpon>login.aspx</DependentUpon>
+    <Compile Include="Testtest123.aspx.cs">
+      <DependentUpon>Testtest123.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="login.aspx.designer.cs">
-      <DependentUpon>login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="userEdit.aspx.cs">
-      <DependentUpon>userEdit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="userEdit.aspx.designer.cs">
-      <DependentUpon>userEdit.aspx</DependentUpon>
+    <Compile Include="Testtest123.aspx.designer.cs">
+      <DependentUpon>Testtest123.aspx</DependentUpon>
     </Compile>
     <Compile Include="userEdit.aspx.cs">
       <DependentUpon>userEdit.aspx</DependentUpon>
@@ -202,7 +202,7 @@
     <Error Condition="!Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
   </Target>
   <Import Project="packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

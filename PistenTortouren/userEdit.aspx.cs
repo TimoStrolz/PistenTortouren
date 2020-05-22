@@ -31,7 +31,7 @@ namespace PistenTortouren
 
         public string loadForm()
         {
-
+            
             string template = @"<form class='col s12'  method='post' id='formEdit' action='userEdit.aspx'>
       <div class='row'>
         <div class='input-field col s6'>
@@ -39,7 +39,7 @@ namespace PistenTortouren
           <input id='name' name='name'type='text' class='validate' value='@name' required>
           <label for='name'>Name</label>
         </div>
-
+    
         <div class='input-field col s6'>
           <i class='material-icons prefix'>dvr</i>
           <input id='website' name='website' type='text' class='validate' value='@website' required>
@@ -151,7 +151,7 @@ namespace PistenTortouren
                     </label>
                 </p>
             </div>
-
+            
         </div>
         <div class='input-field col s6'>
             <input class='btn' type='submit' value='Registrieren' >
@@ -255,13 +255,13 @@ namespace PistenTortouren
                 {
                     return "Hausnummer muss eine Zahl sein";
                 }
-
+                
                 string pw = GlobalRef.getHashSha256(Request.Form["password"]);
                 int subnr = Convert.ToInt32(Request.Form["subscriptionnumber"]);
                 int counter = 0;
                 using (var context = new pistenTortourenDBContext())
                 {
-
+                    
                     foreach (User user in context.Users.SqlQuery("SELECT * FROM Users").ToList<User>())
                     {
                         if (user.email == Request.Form["email"] && Request.Form["email"] != Session["User"].ToString())
