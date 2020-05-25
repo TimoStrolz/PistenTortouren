@@ -12,19 +12,65 @@ namespace PistenTortouren
     {
         public void Page_Load(object sender, EventArgs e)
         {
+
+            int counter = 0;
+            int userID = 0;
+
             //logout
             if (Request.QueryString["task"] != null && Request.QueryString["task"] == "logout")
             {
                 logout();
             }
 
-            //fillUpDatabase();
-            int counter = 0;
 
+            //Quick Edit 
+            if (Request.QueryString["Id"] != null)
+            {
+                string updateStatus = string.Format("SELECT TOP 1 * FROM Tours WHERE tourID='{0}';", Request.QueryString["Id"]);
+                using (pistenTortourenDBContext context = new pistenTortourenDBContext())
+                {
+                    Tour tour = context.Tours.SqlQuery(updateStatus).ToList<Tour>().First();
+
+                    if (tour.status == 1)
+                    {
+                        tour.status = 0;
+                    }
+                    else
+                    {
+                        tour.status = 1;
+                    }
+                    context.SaveChanges();
+
+                }
+                Response.Redirect("landingpage.aspx");
+                    
+            }
+
+
+
+            // Falls User eingeloggt ist Id Speichern  ( wird für Entscheid ob Edit Funktion benutzt gebraucht)
+            if (Session["user"] != null)
+            {
+                using (pistenTortourenDBContext context = new pistenTortourenDBContext())
+                {
+                    foreach (User user in context.Users.SqlQuery("SELECT * FROM Users WHERE email='" + Session["user"] + "'").ToList<User>())
+                    {
+                        userID = user.userID;
+                    }
+                }
+
+            }
+
+
+
+            //fillUpDatabase();
+            
+
+            // Daten für Marker erstellen und Popup von Marker in HTML Div abspeichern um mit Javascript dann die HTML Elemente auszulesen. 
             using (pistenTortourenDBContext context = new pistenTortourenDBContext())
                 foreach (Tour tour in context.Tours.SqlQuery("SELECT * FROM Tours").ToList<Tour>())
                 {
-                    string markerText = "<h5>@Title</h5><p>Beschreibung: @Text</p><p>Schwierigkeit: @Difficulty</p><p>Länge: @Length km</p><a href='detailpage.aspx?id=@Id'><button type='button'>Siehe Mehr</button></a>";
+                    string markerText = "<h5>@Title</h5><p>Status: @status</p><p>Beschreibung: @Text</p><p>Schwierigkeit: @Difficulty</p><p>Länge: @Length km</p><a href='detailpage.aspx?id=@Id'><button type='button'>Siehe Mehr</button></a>@editButton @quickEdit";
                     counter++;
                     this.JsInterfaceMapTypeManager.InnerHtml += generateDivMitIdUndValue(counter.ToString(), tour.finishLongitude.ToString());
                     counter++;
@@ -32,6 +78,32 @@ namespace PistenTortouren
                     /*
                      Hier Code einfügen: Alle Daten für Popup mitnehmen in einem String -> ähnlich wie den Text bei Forumprojekt von dem Forumbeitrag beispiel.     
                      */
+                    if (userID == tour.User_ID)
+                    {
+                        /*
+                        Edit User Button
+                        */
+
+                        markerText = markerText.Replace("@editButton", "<a href='editTour.aspx?id=@Id'><button type='button'>Edit Tour</button></a>");
+                    }
+                    else
+                    {
+                        markerText = markerText.Replace("@editButton", "");
+                        markerText = markerText.Replace("@quickEdit", "");
+                    }
+
+                    // Quick Edit Tour und Anzeige ob Tour offen ist
+                    if(tour.status == 1)
+                    {
+                        markerText = markerText.Replace("@status", "offen");
+                        markerText = markerText.Replace("@quickEdit", "<a href='landingpage.aspx?id=@Id'><button type='button'>Tour auf Geschlossen schalten</button></a>");
+                    }
+                    else
+                    {
+                        markerText = markerText.Replace("@status", "geschlossen");
+                        markerText = markerText.Replace("@quickEdit", "<a href='landingpage.aspx?id=@Id'><button type='button'>Tour auf Offen schalten</button></a>");
+                    }
+
                     counter++;
                     markerText = markerText.Replace("@Id", tour.tourID.ToString());
                     markerText = markerText.Replace("@Title", tour.title);

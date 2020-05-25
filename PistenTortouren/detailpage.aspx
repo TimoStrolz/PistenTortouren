@@ -14,6 +14,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
         <div class="container"><%=TourInfo %></div>
-        <a href='landingpage.aspx'><button type="button">Zurück</button></a>
+        
         <div class="container"><%=TourOeffnungszeiten %></div>
+    <a href='landingpage.aspx'><button type="button">Zurück</button></a>
 </asp:Content>
