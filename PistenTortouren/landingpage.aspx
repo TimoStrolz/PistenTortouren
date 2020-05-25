@@ -2,12 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-  crossorigin=""/>
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
 
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-  integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-  crossorigin=""></script>
+     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
 
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     
@@ -17,7 +17,6 @@
     <!-- POP UP FILTER -->
     <div id="JsInterfaceMapTypeManager" runat="server" style="display: none"></div>
     <div id="mapid"></div>
-    <script src="script.js"></script>
     
     <script>
         var mymap = L.map('mapid').setView([46.8095954, 8.503216], 8);
@@ -30,7 +29,7 @@
             id: 'mapbox/streets-v11',
             tileSize: 512,
             zoomOffset: -1,
-            accessToken: 'pk.eyJ1IjoiYmFuZGl0b2pvIiwiYSI6ImNrOGhhcG03ejAzMXUzZm1rN2Qxa3YyYzUifQ.L0h1FE5Awq5QuwlEUS5dfA'
+            accessToken: 'pk.eyJ1IjoiYmFuZGl0b2pvIiwiYSI6ImNrYW05N3BhZTEyOGoycmp1ZDM3enlkMHUifQ.-yCbJAw0442p1OsyK0AUCQ'
         }).addTo(mymap);
 
         var counter = parseInt(getInterfaceValue("counter"));
