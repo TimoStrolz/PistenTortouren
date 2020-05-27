@@ -47,11 +47,11 @@ namespace PistenTortouren
             using (pistenTortourenDBContext context = new pistenTortourenDBContext())
                 foreach (Tour tour in context.Tours.SqlQuery("SELECT * FROM Tours WHERE tourID=" + tourID.ToString()).ToList<Tour>())
                 {
-                    
+
                     if (userID == tour.User_ID)
                     {
-                        TourInfo = TourInfo.Replace("@editTour","<a href='editTour.aspx?id=@Id'><button type='button'>Edit Tour</button></a>");
-                        TourInfo = TourInfo.Replace("@deleteTour", "<a href='landingpage.aspx?task=delete&ID=@Id>");
+                        TourInfo = TourInfo.Replace("@editTour", "<a href='editTour.aspx?id=@Id'><button type='button'>Edit Tour</button></a>");
+                        TourInfo = TourInfo.Replace("@deleteTour", "<a href='landingpage.aspx?task=delete&ID=@Id'><button type='button'>Delete Tour</a>");
                         userIsOwner = true;
                     }
                     tourUserID = tour.User_ID;
