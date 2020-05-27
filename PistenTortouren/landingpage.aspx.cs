@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -291,7 +290,6 @@ namespace PistenTortouren
             Response.Cookies.Add(myCookie);
             Response.Redirect("landingpage.aspx");
         }
-        // delete
         public void delete(int id)
         {
             using (pistenTortourenDBContext context = new pistenTortourenDBContext())
@@ -306,6 +304,7 @@ namespace PistenTortouren
                 }
             }
         }
+
     }
 }
 
