@@ -28,7 +28,6 @@ namespace PistenTortouren
                         userID = user.userID;
                     }
                 }
-
             }
             //Suchfunktion
             if (Request.Form["search"] != null)
@@ -38,7 +37,7 @@ namespace PistenTortouren
             // Nur eigene Tour anzeigen
             else if (Request.Form["ownTours"] != null)
             {
-
+                search = string.Format("SELECT* FROM Tours WHERE User_ID={0};", userID);
             }
 
             //logout
