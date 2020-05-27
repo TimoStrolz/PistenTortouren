@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -290,7 +291,21 @@ namespace PistenTortouren
             Response.Cookies.Add(myCookie);
             Response.Redirect("landingpage.aspx");
         }
-
+        // delete
+        public void delete(int id)
+        {
+            using (pistenTortourenDBContext context = new pistenTortourenDBContext())
+            {
+                foreach (Tour tour in context.Tours.SqlQuery("Select * FROM Tours").ToList<Tour>())
+                {
+                    if (id == tour.tourID)
+                    {
+                        tour.status = -1;
+                        context.SaveChanges();
+                    }
+                }
+            }
+        }
     }
 }
 
