@@ -70,15 +70,7 @@ namespace PistenTortouren
                     
             }
 
-
-
-
-
-
-
-            //fillUpDatabase();
-            
-
+            //fillUpDatabase();            
             // Daten für Marker erstellen und Popup von Marker in HTML Div abspeichern um mit Javascript dann die HTML Elemente auszulesen. 
             using (pistenTortourenDBContext context = new pistenTortourenDBContext())
                 foreach (Tour tour in context.Tours.SqlQuery(search).ToList<Tour>())
