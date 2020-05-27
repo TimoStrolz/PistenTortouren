@@ -154,7 +154,7 @@ namespace PistenTortouren
             
         </div>
         <div class='input-field col s6'>
-            <input class='btn' type='submit' value='Registrieren' >
+            <input class='btn' type='submit' value='Speichern' >
         </div>
       </div>
     </form>
