@@ -6,78 +6,83 @@
             var elems = document.querySelectorAll('.autocomplete');
             var instances = M.Autocomplete.init(elems, options);
         });</script>
-    <div id="meldung"><%//=smeldung %></div>
+    <div id="meldung"><%=smeldung %></div>
     <form class="col s12" method="post" enctype="multipart/form-data" id="formCreateTourn" action="createTour.aspx">
     <div class="row">
 
          <div class="input-field col s6">
-        <input type="text" id="title" name="titel">
+        <input type="text" id="title" name="title" required>
         <label for="title">Titel:</label>
         </div>
 
         <div class="input-field col s12">
-          <textarea id="text"  name="text" class="materialize-textarea"></textarea>
+          <textarea id="text"  name="text" class="materialize-textarea" required></textarea>
           <label for="text">Text:</label>
         </div>
 
         <div class="input-field col s12">
-          <textarea id="safetyi"  name="safetyi" class="materialize-textarea"></textarea>
+          <textarea id="safetyi"  name="safetyi" class="materialize-textarea" required></textarea>
           <label for="safetyi">Sicherheitsanweisungen:</label>
         </div>
 
         <div class="input-field col s6">
-        <input type="date" id="seasonStart" name="seasonStart">
+        <input type="text" id="difficulty" name="difficulty" required>
+        <label for="difficulty">Schwierigkeit:</label>
+        </div>
+
+        <div class="input-field col s6">
+        <input type="date" id="seasonStart" name="seasonStart" required>
         <label for="seasonStart">Season start: </label>
         </div>
         
          <div class="input-field col s6">
-        <input type="date" id="seasonEnd" name="seasonEnd">
+        <input type="date" id="seasonEnd" name="seasonEnd" required>
         <label for="seassonEnd">Season start: </label>
         </div>
 
         <div class="input-field col s6">
-        <input type="number" id="length" name="length">
+        <input type="number" id="length" name="length" required>
         <label for="length">Länge: </label>
         </div>
 
         <div class="input-field col s6">
-        <input type="number" id="altitude" name="altitude">
+        <input type="number" id="altitude" name="altitude" required>
         <label for="altitude">Höhenmeter: </label>
         </div>
 
          <div class="input-field col s6">
-        <input type="number" id="lowestPoint" name="lowestPoint">
+        <input type="number" id="lowestPoint" name="lowestPoint" required>
         <label for="lowestPoint">Tiefster Punkt:</label>
         </div>
 
         
          <div class="input-field col s6">
-        <input type="number" id="highestPoint" name="highestPoint">
+        <input type="number" id="highestPoint" name="highestPoint" required>
         <label for="highestPoint">höchster Punkt: </label>
         </div>
 
         <div class="input-field col s3">
-        <input type="number" id="startlat" name="startlat">
+        <input type="number" id="startlat" name="startlat" required>
          <label for="startlat">Start Latitude: </label>
         </div>
 
          <div class="input-field col s3">
-        <input type="number" id="startlong" name="startlong">
+        <input type="number" id="startlong" name="startlong" required>
          <label for="startlong">Start Longitude: </label>
         </div>
 
         <div class="input-field col s3">
-        <input type="number" id="finishlat" name="finishlat">
+        <input type="number" id="finishlat" name="finishlat" required>
         <label for="finishlat">Ende Latitude: </label>
         </div>
 
         <div class="input-field col s3">
-        <input type="number" id="finishlong" name="finishlong">
+        <input type="number" id="finishlong" name="finishlong" required>
         <label for="finishlong">Ende Longitude: </label>
         </div>
 
         <div class="input-field col s12">
-          <textarea id="gettingThere"  name="gettingThere" class="materialize-textarea"></textarea>
+          <textarea id="gettingThere"  name="gettingThere" class="materialize-textarea" required></textarea>
           <label for="gettingThere">Anreise: </label>
         </div>
 
@@ -87,13 +92,13 @@
             <div id="signalled">
                 <p>
                     <label>
-                    <input  class="with-gap" name="signalled" value="ja" type="radio" required/>
+                    <input  class="with-gap" name="signalled" value="true" type="radio" required/>
                     <span>Ja</span>
                     </label>
                 </p>
                 <p>
                     <label>
-                    <input class="with-gap" name="signalled" value="nein" type="radio" required />
+                    <input class="with-gap" name="signalled" value="false" type="radio" required />
                     <span>Nein</span>
                     </label>
             </div>
@@ -104,13 +109,13 @@
             <div id="changingRooms">
                 <p>
                     <label>
-                    <input  class="with-gap" name="changingRooms" value="ja" type="radio" required/>
+                    <input  class="with-gap" name="changingRooms" value="true" type="radio" required/>
                     <span>Ja</span>
                     </label>
                 </p>
                 <p>
                     <label>
-                    <input class="with-gap" name="changingRooms" value="nein" type="radio" required />
+                    <input class="with-gap" name="changingRooms" value="false" type="radio" required />
                     <span>Nein</span>
                     </label>
             </div>
@@ -122,13 +127,13 @@
             <div id="wc">
                 <p>
                     <label>
-                    <input  class="with-gap" name="wc" value="ja" type="radio" required/>
+                    <input  class="with-gap" name="wc" value="true" type="radio" required/>
                     <span>Ja</span>
                     </label>
                 </p>
                 <p>
                     <label>
-                    <input class="with-gap" name="wc" value="nein" type="radio" required />
+                    <input class="with-gap" name="wc" value="false" type="radio" required />
                     <span>Nein</span>
                     </label>
             </div>
@@ -140,13 +145,13 @@
             <div id="drink">
                 <p>
                     <label>
-                    <input  class="with-gap" name="drink" value="ja" type="radio" required/>
+                    <input  class="with-gap" name="drink" value="true" type="radio" required/>
                     <span>Ja</span>
                     </label>
                 </p>
                 <p>
                     <label>
-                    <input class="with-gap" name="drink" value="nein" type="radio" required />
+                    <input class="with-gap" name="drink" value="false" type="radio" required />
                     <span>Nein</span>
                     </label>
             </div>
@@ -158,13 +163,13 @@
             <div id="food">
                 <p>
                     <label>
-                    <input  class="with-gap" name="food" value="ja" type="radio" required/>
+                    <input  class="with-gap" name="food" value="true" type="radio" required/>
                     <span>Ja</span>
                     </label>
                 </p>
                 <p>
                     <label>
-                    <input class="with-gap" name="food" value="nein" type="radio" required />
+                    <input class="with-gap" name="food" value="false" type="radio" required />
                     <span>Nein</span>
                     </label>
             </div>
@@ -175,13 +180,13 @@
             <div id="accommodation">
                 <p>
                     <label>
-                    <input  class="with-gap" name="accommodation" value="ja" type="radio" required/>
+                    <input  class="with-gap" name="accommodation" value="true" type="radio" required/>
                     <span>Ja</span>
                     </label>
                 </p>
                 <p>
                     <label>
-                    <input class="with-gap" name="accommodation" value="nein" type="radio" required />
+                    <input class="with-gap" name="accommodation" value="false" type="radio" required />
                     <span>Nein</span>
                     </label>
             </div>
@@ -189,23 +194,23 @@
 
         <div class="input-field col s6">
         <a>Offen</a>
-            <div id="open">
+            <div id="status">
                 <p>
                     <label>
-                    <input  class="with-gap" name="open" value="ja" type="radio" required/>
+                    <input  class="with-gap" name="status" value="1" type="radio" required/>
                     <span>Ja</span>
                     </label>
                 </p>
                 <p>
                     <label>
-                    <input class="with-gap" name="open" value="nein" type="radio" required />
+                    <input class="with-gap" name="status" value="0" type="radio" required />
                     <span>Nein</span>
                     </label>
             </div>
         </div>
 
          <div class="input-field col s12">
-          <textarea id="instructions"  name="instructions" class="materialize-textarea"></textarea>
+          <textarea id="instructions"  name="instructions" class="materialize-textarea" required></textarea>
           <label for="instructions">Anweisungen: </label>
         </div>
 

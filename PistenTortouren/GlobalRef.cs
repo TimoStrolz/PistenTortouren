@@ -5,6 +5,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace PistenTortouren
 {
@@ -76,6 +78,21 @@ namespace PistenTortouren
             }
             string s = date.Year.ToString() + "-" + lessTenMonths + date.Month.ToString() +  "-" + lessTenDays + date.Day.ToString();
             return s;
+        }
+
+        public static int getIDFromEmail(string email)
+        {
+            if (email != null)
+            {
+                using (pistenTortourenDBContext context = new pistenTortourenDBContext())
+                {
+                    foreach (User user in context.Users.SqlQuery("SELECT * FROM Users WHERE email='" + email + "'").ToList<User>())
+                    {
+                        return user.userID;
+                    }
+                }
+            }
+            return 0;
         }
     }
 }
