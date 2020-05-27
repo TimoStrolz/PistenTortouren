@@ -57,7 +57,6 @@ C:\Users\timos\Documents\GitHub\PistenTortouren\PistenTortouren\obj\Debug\Pisten
 C:\Users\timos\Documents\GitHub\PistenTortouren\PistenTortouren\obj\Debug\PistenTortouren.csproj.CopyComplete
 C:\Users\timos\Documents\GitHub\PistenTortouren\PistenTortouren\obj\Debug\PistenTortouren.dll
 C:\Users\timos\Documents\GitHub\PistenTortouren\PistenTortouren\obj\Debug\PistenTortouren.pdb
-C:\Users\timos\Documents\GitHub\PistenTortouren\PistenTortouren\obj\Debug\PistenTortouren.csprojAssemblyReference.cache
 C:\Users\Joel Thoma\Documents\GitHub\PistenTortouren\PistenTortouren\bin\PistenTortouren.dll.config
 C:\Users\Joel Thoma\Documents\GitHub\PistenTortouren\PistenTortouren\bin\PistenTortouren.dll
 C:\Users\Joel Thoma\Documents\GitHub\PistenTortouren\PistenTortouren\bin\PistenTortouren.pdb

@@ -94,5 +94,21 @@ namespace PistenTortouren
             }
             return 0;
         }
+
+        public static string htmltimeValue(DateTime date)
+        {
+            string lessTenHours = "";
+            if (date.Hour < 10)
+            {
+               lessTenHours = "0";
+            }
+            string lessTenMinutes = "";
+            if (date.Minute < 10)
+            {
+                lessTenMinutes= "0";
+            }
+            string s =lessTenHours + date.Hour.ToString() + ":" + lessTenMinutes + date.Minute.ToString();
+            return s;
+        }
     }
 }

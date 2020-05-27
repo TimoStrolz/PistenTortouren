@@ -15,7 +15,7 @@ namespace PistenTortouren
 
             int counter = 0;
             int userID = 0;
-            string search = "SELECT* FROM Tours";
+            string search = "SELECT* FROM Tours WHERE NOT status='-1';";
 
 
             // Falls User eingeloggt ist Id Speichern  ( wird für Entscheid ob Edit Funktion benutzt gebraucht und um alle eigenen Touren anzuzeigen)
@@ -32,12 +32,12 @@ namespace PistenTortouren
             //Suchfunktion
             if (Request.Form["search"] != null)
             {
-                search = string.Format("SELECT * FROM Tours WHERE title LIKE '%{0}%'; ", Request.Form["search"]);
+                search = string.Format("SELECT * FROM Tours WHERE NOT status='-1' AND title LIKE '%{0}%';", Request.Form["search"]);
             }
             // Nur eigene Tour anzeigen
             else if (Request.Form["ownTours"] != null)
             {
-                search = string.Format("SELECT* FROM Tours WHERE User_ID={0};", userID);
+                search = string.Format("SELECT* FROM Tours WHERE NOT status='-1' AND User_ID={0};", userID);
             }
 
             //logout
@@ -46,6 +46,11 @@ namespace PistenTortouren
                 logout();
             }
 
+            //delet tour
+            if (Request.QueryString["task"] != null && Request.QueryString["task"] == "delete")
+            {
+                delete(Convert.ToInt32(Request.QueryString["ID"]));
+            }
 
             //Quick Edit 
             if (Request.QueryString["Id"] != null)
@@ -70,15 +75,7 @@ namespace PistenTortouren
                     
             }
 
-
-
-
-
-
-
-            //fillUpDatabase();
-            
-
+            //fillUpDatabase();            
             // Daten für Marker erstellen und Popup von Marker in HTML Div abspeichern um mit Javascript dann die HTML Elemente auszulesen. 
             using (pistenTortourenDBContext context = new pistenTortourenDBContext())
                 foreach (Tour tour in context.Tours.SqlQuery(search).ToList<Tour>())
@@ -297,6 +294,20 @@ namespace PistenTortouren
             myCookie.Value = "";
             Response.Cookies.Add(myCookie);
             Response.Redirect("landingpage.aspx");
+        }
+        public void delete(int id)
+        {
+            using (pistenTortourenDBContext context = new pistenTortourenDBContext())
+            {
+                foreach (Tour tour in context.Tours.SqlQuery("Select * FROM Tours").ToList<Tour>())
+                {
+                    if (id == tour.tourID)
+                    {
+                        tour.status = -1;
+                        context.SaveChanges();
+                    }
+                }
+            }
         }
 
     }
