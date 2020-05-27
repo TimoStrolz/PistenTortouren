@@ -15,7 +15,7 @@ namespace PistenTortouren
 
             int counter = 0;
             int userID = 0;
-            string search = "SELECT* FROM Tours";
+            string search = "SELECT* FROM Tours WHERE NOT status='-1';";
 
 
             // Falls User eingeloggt ist Id Speichern  ( wird für Entscheid ob Edit Funktion benutzt gebraucht und um alle eigenen Touren anzuzeigen)
@@ -32,12 +32,12 @@ namespace PistenTortouren
             //Suchfunktion
             if (Request.Form["search"] != null)
             {
-                search = string.Format("SELECT * FROM Tours WHERE title LIKE '%{0}%'; ", Request.Form["search"]);
+                search = string.Format("SELECT * FROM Tours WHERE NOT status='-1' AND title LIKE '%{0}%';", Request.Form["search"]);
             }
             // Nur eigene Tour anzeigen
             else if (Request.Form["ownTours"] != null)
             {
-                search = string.Format("SELECT* FROM Tours WHERE User_ID={0};", userID);
+                search = string.Format("SELECT* FROM Tours WHERE NOT status='-1' AND User_ID={0};", userID);
             }
 
             //logout
