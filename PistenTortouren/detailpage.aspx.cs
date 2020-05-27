@@ -9,7 +9,7 @@ namespace PistenTortouren
 {
     public partial class detailpage : System.Web.UI.Page
     {
-        public string TourInfo = "<h1>@Titel</h1><h5>Beschreibung: @Text</h5><h5>Schwierigkeit: @difficulty</h5><h5>Sicherheitshinweise: @safetyInstruction</h5><h5>Saison Start: @seasonStart</h5><h5>Saison Ende: @seasonEnd</h5><h5>Länge: @tourLength km</h5><h5>Höhenmeter: @altitude m</h5><h5>Tiefster Punkt: @lowestPoint m</h5><h5>Höchster Punkt: @highestPoint m</h5><h5>Anfahrt: @gettingThere</h5><h5>Strecke signalisiert: @signalled</h5><h5>Umkleidekabinen: @changingRooms</h5><h5>WC: @WC</h5><h5>Getränke: @drinks</h5><h5>Essen: @food</h5><h5>Unterkunf: @accommodation</h5><h5>Anweisungen: @instruction</h5> @editTour";
+        public string TourInfo = "<h1>@Titel</h1><h5>Beschreibung: @Text</h5><h5>Schwierigkeit: @difficulty</h5><h5>Sicherheitshinweise: @safetyInstruction</h5><h5>Saison Start: @seasonStart</h5><h5>Saison Ende: @seasonEnd</h5><h5>Länge: @tourLength km</h5><h5>Höhenmeter: @altitude m</h5><h5>Tiefster Punkt: @lowestPoint m</h5><h5>Höchster Punkt: @highestPoint m</h5><h5>Anfahrt: @gettingThere</h5><h5>Strecke signalisiert: @signalled</h5><h5>Umkleidekabinen: @changingRooms</h5><h5>WC: @WC</h5><h5>Getränke: @drinks</h5><h5>Essen: @food</h5><h5>Unterkunf: @accommodation</h5><h5>Anweisungen: @instruction</h5> @editTour @deleteTour";
         public string TourOeffnungszeiten = "<h5>Öffnungszeiten während der Saison: @alleÖffnungszeiten</h5> @editOpeningtimes";
         public string Öffnungszeiten = "";
         public int tourID;
@@ -51,10 +51,12 @@ namespace PistenTortouren
                     if (userID == tour.User_ID)
                     {
                         TourInfo = TourInfo.Replace("@editTour","<a href='editTour.aspx?id=@Id'><button type='button'>Edit Tour</button></a>");
+                        TourInfo = TourInfo.Replace("@deleteTour", "<a href='landingpage.aspx?task=delete&ID=@Id>");
                         userIsOwner = true;
                     }
                     tourUserID = tour.User_ID;
                     TourInfo = TourInfo.Replace("@Id", tour.tourID.ToString());
+                    TourInfo = TourInfo.Replace("@deleteTour", "");
                     TourInfo = TourInfo.Replace("@editTour", "");
                     TourInfo = TourInfo.Replace("@Titel", tour.title);
                     TourInfo = TourInfo.Replace("@Text", tour.text);
@@ -88,6 +90,7 @@ namespace PistenTortouren
                 }
             if (userID == tourUserID)
             {
+                
                 TourOeffnungszeiten = TourOeffnungszeiten.Replace("@editOpeningtimes", "<a href='openingtimes.aspx?id=@Id'><button type='button'>Edit Öffnungszeiten</button></a>");
                 TourOeffnungszeiten = TourOeffnungszeiten.Replace("@Id", tourID.ToString());
             }
