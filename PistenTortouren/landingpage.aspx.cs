@@ -46,6 +46,11 @@ namespace PistenTortouren
                 logout();
             }
 
+            //delet tour
+            if (Request.QueryString["task"] != null && Request.QueryString["task"] == "delete")
+            {
+                delete(Convert.ToInt32(Request.QueryString["ID"]));
+            }
 
             //Quick Edit 
             if (Request.QueryString["Id"] != null)
