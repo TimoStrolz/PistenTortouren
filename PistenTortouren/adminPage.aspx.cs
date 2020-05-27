@@ -36,7 +36,7 @@ namespace PistenTortouren
                        <td><input  name='billsent@ID' type='date' class='validate' value='@BillSent' required></td>
                         <td><input name='lastpayment@ID' type='date' class='validate' value='@LastPayment' required></td>
                        <td><input  class='btn' type='submit' value='Speichern'></td>
-                   <form>
+                   </form>
                    <td><a class='btn btn-primary' href='adminPage.aspx?Task=Delete&ID=@ID'>Löschen</a></td>
                </tr>";
 

@@ -35,7 +35,7 @@ namespace PistenTortouren
         public string loadData()
         {
             string Items = "";
-            string userTemplate = $@"<tr>
+            string otTemplate = $@"<tr>
                    <form method='post' id='ot@ID' action='openingTimes.aspx?ID=@TourID'>
                        <input  name='hidden@ID' type='hidden' class='validate' value='@ID'>
                        <td><input  name='display@ID' type='number' class='validate' value='@ID' disabled></td>
@@ -43,7 +43,7 @@ namespace PistenTortouren
                        <td><input  name='start@ID' type='time' class='validate' value='@start' required></td>
                         <td><input name='end@ID' type='time' class='validate' value='@end' required></td>
                        <td><input  class='btn' type='submit' value='Speichern'></td>
-                   <form>
+                   </form>
                    <td><a class='btn btn-primary' href='openingTimes.aspx?Task=Delete&ID=@ID'>Löschen</a></td>
                </tr>";
             using (pistenTortourenDBContext context = new pistenTortourenDBContext())
@@ -52,7 +52,7 @@ namespace PistenTortouren
                 {
                     if (openingTime.Tour_ID.ToString() == Request.QueryString["ID"])
                     {
-                        string userItem = userTemplate;
+                        string userItem = otTemplate;
                         userItem = userItem.Replace("@ID", openingTime.openingTimeID.ToString());
                         userItem = userItem.Replace("@TourID", Request.QueryString["ID"]);
                         userItem = userItem.Replace("@day", openingTime.day);
@@ -88,14 +88,14 @@ namespace PistenTortouren
             {
                 foreach (OpeningTime openingTime in context.OpeningTimes.SqlQuery("Select * FROM OpeningTimes").ToList<OpeningTime>())
                 {
-                    if (Request.QueryString["hidden" + openingTime.openingTimeID.ToString()] == openingTime.Tour_ID.ToString())
+                    if (Convert.ToInt32(Request.Form["hidden" + openingTime.openingTimeID.ToString()]) == openingTime.openingTimeID)
                     {
                         openingTime.day = Request.Form["day" + openingTime.openingTimeID.ToString()];
                         openingTime.start = Convert.ToDateTime(Request.Form["start" + openingTime.openingTimeID.ToString()]);
                         openingTime.end = Convert.ToDateTime(Request.Form["end" + openingTime.openingTimeID.ToString()]);
+                        context.SaveChanges();
                     }
                 }
-                context.SaveChanges();
             }
         }
 
