@@ -15,6 +15,30 @@ namespace PistenTortouren
 
             int counter = 0;
             int userID = 0;
+            string search = "SELECT* FROM Tours";
+
+
+            // Falls User eingeloggt ist Id Speichern  ( wird für Entscheid ob Edit Funktion benutzt gebraucht und um alle eigenen Touren anzuzeigen)
+            if (Session["user"] != null)
+            {
+                using (pistenTortourenDBContext context = new pistenTortourenDBContext())
+                {
+                    foreach (User user in context.Users.SqlQuery("SELECT * FROM Users WHERE email='" + Session["user"] + "'").ToList<User>())
+                    {
+                        userID = user.userID;
+                    }
+                }
+            }
+            //Suchfunktion
+            if (Request.Form["search"] != null)
+            {
+                search = string.Format("SELECT * FROM Tours WHERE title LIKE '%{0}%'; ", Request.Form["search"]);
+            }
+            // Nur eigene Tour anzeigen
+            else if (Request.Form["ownTours"] != null)
+            {
+                search = string.Format("SELECT* FROM Tours WHERE User_ID={0};", userID);
+            }
 
             //logout
             if (Request.QueryString["task"] != null && Request.QueryString["task"] == "logout")
@@ -48,18 +72,7 @@ namespace PistenTortouren
 
 
 
-            // Falls User eingeloggt ist Id Speichern  ( wird für Entscheid ob Edit Funktion benutzt gebraucht)
-            if (Session["user"] != null)
-            {
-                using (pistenTortourenDBContext context = new pistenTortourenDBContext())
-                {
-                    foreach (User user in context.Users.SqlQuery("SELECT * FROM Users WHERE email='" + Session["user"] + "'").ToList<User>())
-                    {
-                        userID = user.userID;
-                    }
-                }
 
-            }
 
 
 
@@ -68,7 +81,7 @@ namespace PistenTortouren
 
             // Daten für Marker erstellen und Popup von Marker in HTML Div abspeichern um mit Javascript dann die HTML Elemente auszulesen. 
             using (pistenTortourenDBContext context = new pistenTortourenDBContext())
-                foreach (Tour tour in context.Tours.SqlQuery("SELECT * FROM Tours").ToList<Tour>())
+                foreach (Tour tour in context.Tours.SqlQuery(search).ToList<Tour>())
                 {
                     string markerText = "<h5>@Title</h5><p>Status: @status</p><p>Beschreibung: @Text</p><p>Schwierigkeit: @Difficulty</p><p>Länge: @Length km</p><a href='detailpage.aspx?id=@Id'><button type='button'>Siehe Mehr</button></a>@editButton @quickEdit";
                     counter++;

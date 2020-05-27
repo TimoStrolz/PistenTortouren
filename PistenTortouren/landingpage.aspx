@@ -13,7 +13,9 @@
     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-
+     <form method="post" action="landingpage.aspx">
+        <input type="submit" value="Eigene Tours anzeigen" name="ownTours">
+     </form>
     <!-- POP UP FILTER -->
     <div id="JsInterfaceMapTypeManager" runat="server" style="display: none"></div>
     <div id="mapid"></div>
